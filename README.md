@@ -3,4 +3,4 @@ A Java Swing GUI Program that is able to decrypt user inputted cipher text which
 
 https://github.com/tmfontan/DESDecryptionTool.git/
 
-![Alt Text](DESDecryptionTool/Screenshots/Screen Shot 2020-12-08 at 2.58.53 PM.png)
+![Alt Text](DESDecryptionTool/Screenshots/Screenshot_Initial.png)
