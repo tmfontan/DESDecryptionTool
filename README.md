@@ -6,7 +6,7 @@ A Java Swing GUI Application that is able to decrypt user inputted cipher text w
 **A detailed explanation of the Java Classes contained within the project in Addition to Multiple Screenshots of the Application's Functionality are shown below:**
 
 ![Alt Text](DESDecryptionTool/Screenshots/Screenshot_Initial.png)
-![Alt Text](DESDecryptionTool/Screenshots/Class_Explanation.png)
+![Alt Text](DESDecryptionTool/Screenshots/Class_Explaination.png)
 ![Alt Text](DESDecryptionTool/Screenshots/Screenshot_Display_Cipher_Modes.png)
 ![Alt Text](DESDecryptionTool/Screenshots/Screenshot_Warning_Messsage_One.png)
 ![Alt Text](DESDecryptionTool/Screenshots/Screenshot_Warning_Message_Effects_One.png)
