@@ -1,5 +1,7 @@
 # 🛡️ DES Decryption Tool
 
+![Application Logo](DESDecryptionTool/Screenshots/DES Decryption Tool Logo.svg)
+
 &#x20;     &#x20;
 
 A **Java Swing** desktop application for decrypting messages encrypted with the **Data Encryption Standard (DES)** across multiple cipher modes. Designed with a clean and intuitive GUI, it provides real-time input validation, clear error handling, and accurate decryption results.
