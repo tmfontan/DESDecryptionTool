@@ -141,8 +141,6 @@ Note: The JAR file comes from Maven but is not included by default in NetBeans. 
  - Ensures formatting is correct before passing values into decryption.
  - Returns conversion results as objects, including failure information if input was poorly formatted.
 
-🗺️ Roadmap
-
 ## 🗺️ Roadmap
 
 Planned enhancements and future improvements:
