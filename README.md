@@ -1,4 +1,4 @@
-<h1 align="center"># DES Cipher Decryption Utility w/ GUI</h1>
+<h1 align="center">DES Cipher Decryption Utility w/ GUI</h1>
 
 <p align="center">
   <img src="DESDecryptionTool/Screenshots/DES_Logo.png" alt="Application Logo" width="1200"/>
