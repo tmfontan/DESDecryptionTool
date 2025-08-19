@@ -67,9 +67,6 @@ git clone https://github.com/tmfontan/DESDecryptionTool.git
 ### Initial Interface
 ![Initial Screen](DESDecryptionTool/Screenshots/Screenshot_Initial.png)
 
-### Class Overview
-![Class Overview](DESDecryptionTool/Screenshots/Class_Explaination.png)
-
 ### Cipher Mode Selection
 ![Cipher Mode Display](DESDecryptionTool/Screenshots/Screenshot_Display_Cipher_Modes.png)
 
@@ -87,9 +84,64 @@ git clone https://github.com/tmfontan/DESDecryptionTool.git
 
 ## 🛠️ Class Structure
 
-A detailed explanation of the Java classes contained within the project is included alongside the screenshots. This helps users and developers understand the internal design and flow of the tool.
+The GUI application is composed of seven separate classes:
 
----
+1. GUI
+
+ - Responsible for creating the main GUI window form and handling most of the component functionality.
+ - Uses Swing components such as '''JFrame, JLabel, JTextField, JButton, JTextArea, and JComboBox.
+ - Provides fields for entering the 16-character HEX Security Key and Initialization Vector (IV) depending on cipher mode.
+ - Includes input and output text areas, a cipher mode dropdown, and buttons to decrypt or clear inputs.
+ - Ensures a user-friendly layout for decrypting messages.
+
+2. WarningMessageFrame
+
+ - Creates a pop-up window shown when the user attempts decryption without filling in all required fields.
+ - Displays which fields are missing and highlights the missing input fields.
+ - Denoted by the title “Warning” and includes a yellow caution emblem.
+
+3. WarningMessageFrameTwo
+
+ - Displays warnings for invalid input, such as:
+ - Non-hexadecimal characters
+ - Invalid key or IV length (not 16 characters)
+ - Larger than the first warning window to display detailed error messages.
+ - Titled “Warning”, with a caution emblem and a message table listing all invalid fields.
+
+4. ErrorMessageFrame
+
+ - Handles decryption failure errors.
+ - Similar design to the warning frames but titled “Error”, with a red/white failure icon.
+ - Used to display reasons for failed decryption attempts.
+
+Note: These GUI classes (and others) also contain TaskHandler inner classes that spawn and execute separate event queue threads for heavy data manipulation. This is explained further in the source code via comments.
+
+5. BlockCipherDecrypt
+
+ - Contains decryption methods for different DES cipher modes.
+ - Formats input strings and converts them into their hexadecimal byte-equivalent forms.
+ - Uses the external Bouncy Castle Security JAR (bcprov-jdk15on-1.66.jar) for cryptographic operations.
+ - Provides the encryption and decryption logic for processing encrypted messages.
+
+Note: The JAR file comes from Maven but is not included by default in NetBeans. It must be added manually under the project’s External Jars directory.
+
+6. DecryptionReturnObject
+
+ - Creates object instances to return results from a decryption attempt.
+ - Returns:
+     - A Boolean flag indicating success or failure.
+     - An error code and details if an exception occurs.
+     - The decrypted plaintext if successful.
+ - Allows the GUI to display clear results or errors to the user.
+
+7. StringToByteArrayConversionResult
+
+ - Responsible for converting strings to byte arrays for decryption.
+ - Handles hex string parsing, including tricky cases like extra whitespace.
+ - Ensures formatting is correct before passing values into decryption.
+ - Returns conversion results as objects, including failure information if input was poorly formatted.
+
+🗺️ Roadmap
 
 ## 🗺️ Roadmap
 
