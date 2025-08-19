@@ -1,7 +1,7 @@
 # 🛡️ DES Cipher Decryption Utility w/ GUI
 
 <p align="center">
-  <img src="DESDecryptionTool/Screenshots/DES_Decryption_Tool_Logo.svg" alt="Application Logo" width="300"/>
+  <img src="DESDecryptionTool/Screenshots/DES_Logo.svg" alt="Application Logo" width="1200"/>
 </p>
 
 &#x20;     &#x20;
