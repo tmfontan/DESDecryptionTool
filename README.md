@@ -1,4 +1,4 @@
-# 🛡️ DES Cipher Decryption Utility w/ GUI
+# DES Cipher Decryption Utility w/ GUI
 
 <p align="center">
   <img src="DESDecryptionTool/Screenshots/DES_Logo.png" alt="Application Logo" width="1200"/>
