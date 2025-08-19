@@ -1,6 +1,6 @@
 # 🛡️ DES Decryption Tool
 
-![Application Logo](DESDecryptionTool/Screenshots/DES Decryption Tool Logo.svg)
+![Application Logo](DESDecryptionTool/Screenshots/DES_Decryption_Tool_Logo.svg)
 
 &#x20;     &#x20;
 
