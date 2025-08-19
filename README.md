@@ -62,9 +62,6 @@ git clone https://github.com/tmfontan/DESDecryptionTool.git
 ### Initial Interface
 ![Initial Screen](DESDecryptionTool/Screenshots/Screenshot_Initial.png)
 
-### Class Overview
-![Class Overview](DESDecryptionTool/Screenshots/Class_Explaination.png)
-
 ### Cipher Mode Selection
 ![Cipher Mode Display](DESDecryptionTool/Screenshots/Screenshot_Display_Cipher_Modes.png)
 
