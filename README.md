@@ -86,7 +86,7 @@ git clone https://github.com/tmfontan/DESDecryptionTool.git
 
 The GUI application is composed of seven separate classes:
 
-1. GUI
+### 1. GUI
 
  - Responsible for creating the main GUI window form and handling most of the component functionality.
  - Uses Swing components such as '''JFrame, JLabel, JTextField, JButton, JTextArea, and JComboBox.
@@ -94,13 +94,13 @@ The GUI application is composed of seven separate classes:
  - Includes input and output text areas, a cipher mode dropdown, and buttons to decrypt or clear inputs.
  - Ensures a user-friendly layout for decrypting messages.
 
-2. WarningMessageFrame
+### 2. WarningMessageFrame
 
  - Creates a pop-up window shown when the user attempts decryption without filling in all required fields.
  - Displays which fields are missing and highlights the missing input fields.
  - Denoted by the title “Warning” and includes a yellow caution emblem.
 
-3. WarningMessageFrameTwo
+### 3. WarningMessageFrameTwo
 
  - Displays warnings for invalid input, such as:
  - Non-hexadecimal characters
@@ -108,7 +108,7 @@ The GUI application is composed of seven separate classes:
  - Larger than the first warning window to display detailed error messages.
  - Titled “Warning”, with a caution emblem and a message table listing all invalid fields.
 
-4. ErrorMessageFrame
+### 4. ErrorMessageFrame
 
  - Handles decryption failure errors.
  - Similar design to the warning frames but titled “Error”, with a red/white failure icon.
@@ -116,7 +116,7 @@ The GUI application is composed of seven separate classes:
 
 Note: These GUI classes (and others) also contain TaskHandler inner classes that spawn and execute separate event queue threads for heavy data manipulation. This is explained further in the source code via comments.
 
-5. BlockCipherDecrypt
+### 5. BlockCipherDecrypt
 
  - Contains decryption methods for different DES cipher modes.
  - Formats input strings and converts them into their hexadecimal byte-equivalent forms.
@@ -125,7 +125,7 @@ Note: These GUI classes (and others) also contain TaskHandler inner classes that
 
 Note: The JAR file comes from Maven but is not included by default in NetBeans. It must be added manually under the project’s External Jars directory.
 
-6. DecryptionReturnObject
+### 6. DecryptionReturnObject
 
  - Creates object instances to return results from a decryption attempt.
  - Returns:
@@ -134,7 +134,7 @@ Note: The JAR file comes from Maven but is not included by default in NetBeans. 
      - The decrypted plaintext if successful.
  - Allows the GUI to display clear results or errors to the user.
 
-7. StringToByteArrayConversionResult
+### 7. StringToByteArrayConversionResult
 
  - Responsible for converting strings to byte arrays for decryption.
  - Handles hex string parsing, including tricky cases like extra whitespace.
