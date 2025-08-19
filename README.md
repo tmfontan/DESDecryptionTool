@@ -1,13 +1,6 @@
 # 🛡️ DES Decryption Tool
 
-[![Java](https://img.shields.io/badge/Java-8%2B-blue.svg)](https://www.oracle.com/java/technologies/javase-downloads.html)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/tmfontan/DESDecryptionTool)](https://github.com/tmfontan/DESDecryptionTool/commits/main)
-[![Repo Size](https://img.shields.io/github/repo-size/tmfontan/DESDecryptionTool)](https://github.com/tmfontan/DESDecryptionTool)
-[![Open Issues](https://img.shields.io/github/issues/tmfontan/DESDecryptionTool)](https://github.com/tmfontan/DESDecryptionTool/issues)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
-[![Code Quality](https://img.shields.io/badge/code%20quality-A%2B-success.svg)]()
-[![Coverage](https://img.shields.io/badge/coverage-95%25-blue.svg)]()
+&#x20;     &#x20;
 
 A **Java Swing** desktop application for decrypting messages encrypted with the **Data Encryption Standard (DES)** across multiple cipher modes. Designed with a clean and intuitive GUI, it provides real-time input validation, clear error handling, and accurate decryption results.
 
@@ -39,10 +32,12 @@ The application validates inputs, provides actionable error messages, and displa
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - **Java JDK 8+**
 - **Apache NetBeans 11.2** (recommended) or another Java IDE
 
 ### Installation
+
 ```bash
 git clone https://github.com/tmfontan/DESDecryptionTool.git
 ```
@@ -67,6 +62,9 @@ git clone https://github.com/tmfontan/DESDecryptionTool.git
 ### Initial Interface
 ![Initial Screen](DESDecryptionTool/Screenshots/Screenshot_Initial.png)
 
+### Class Overview
+![Class Overview](DESDecryptionTool/Screenshots/Class_Explaination.png)
+
 ### Cipher Mode Selection
 ![Cipher Mode Display](DESDecryptionTool/Screenshots/Screenshot_Display_Cipher_Modes.png)
 
@@ -84,62 +82,57 @@ git clone https://github.com/tmfontan/DESDecryptionTool.git
 
 ## 🛠️ Class Structure
 
-The GUI application is composed of seven separate classes:
+The GUI application is composed of **seven separate classes**:
 
-### 1. GUI
+1. **[GUI](https://github.com/tmfontan/DESDecryptionTool/blob/main/src/GUI.java)**  
+   - Responsible for creating the main GUI window form and handling most of the component functionality.  
+   - Uses **Swing components** such as `JFrame`, `JLabel`, `JTextField`, `JButton`, `JTextArea`, and `JComboBox`.  
+   - Provides fields for entering the **16-character HEX Security Key** and **Initialization Vector (IV)** depending on cipher mode.  
+   - Includes input and output text areas, a cipher mode dropdown, and buttons to decrypt or clear inputs.  
+   - Ensures a user-friendly layout for decrypting messages.  
 
- - Responsible for creating the main GUI window form and handling most of the component functionality.
- - Uses Swing components such as '''JFrame, JLabel, JTextField, JButton, JTextArea, and JComboBox.
- - Provides fields for entering the 16-character HEX Security Key and Initialization Vector (IV) depending on cipher mode.
- - Includes input and output text areas, a cipher mode dropdown, and buttons to decrypt or clear inputs.
- - Ensures a user-friendly layout for decrypting messages.
+2. **[WarningMessageFrame](https://github.com/tmfontan/DESDecryptionTool/blob/main/src/WarningMessageFrame.java)**  
+   - Creates a **pop-up window** shown when the user attempts decryption without filling in all required fields.  
+   - Displays which fields are missing and highlights the missing input fields.  
+   - Denoted by the title **“Warning”** and includes a yellow caution emblem.  
 
-### 2. WarningMessageFrame
+3. **[WarningMessageFrameTwo](https://github.com/tmfontan/DESDecryptionTool/blob/main/src/WarningMessageFrameTwo.java)**  
+   - Displays warnings for **invalid input**, such as:  
+     - Non-hexadecimal characters  
+     - Invalid key or IV length (not 16 characters)  
+   - Larger than the first warning window to display detailed error messages.  
+   - Titled **“Warning”**, with a caution emblem and a message table listing all invalid fields.  
 
- - Creates a pop-up window shown when the user attempts decryption without filling in all required fields.
- - Displays which fields are missing and highlights the missing input fields.
- - Denoted by the title “Warning” and includes a yellow caution emblem.
+4. **[ErrorMessageFrame](https://github.com/tmfontan/DESDecryptionTool/blob/main/src/ErrorMessageFrame.java)**  
+   - Handles **decryption failure errors**.  
+   - Similar design to the warning frames but titled **“Error”**, with a red/white failure icon.  
+   - Used to display reasons for failed decryption attempts.  
 
-### 3. WarningMessageFrameTwo
+   > **Note:** These GUI classes (and others) also contain **TaskHandler inner classes** that spawn and execute separate event queue threads for heavy data manipulation. This is explained further in the source code via comments.
 
- - Displays warnings for invalid input, such as:
- - Non-hexadecimal characters
- - Invalid key or IV length (not 16 characters)
- - Larger than the first warning window to display detailed error messages.
- - Titled “Warning”, with a caution emblem and a message table listing all invalid fields.
+5. **[BlockCipherDecrypt](https://github.com/tmfontan/DESDecryptionTool/blob/main/src/BlockCipherDecrypt.java)**  
+   - Contains decryption methods for different DES cipher modes.  
+   - Formats input strings and converts them into their hexadecimal byte-equivalent forms.  
+   - Uses the external **Bouncy Castle Security JAR** (`bcprov-jdk15on-1.66.jar`) for cryptographic operations.  
+   - Provides the encryption and decryption logic for processing encrypted messages.  
 
-### 4. ErrorMessageFrame
+   > **Note:** The JAR file comes from Maven but is **not included by default** in NetBeans. It must be added manually under the project’s `External Jars` directory.  
 
- - Handles decryption failure errors.
- - Similar design to the warning frames but titled “Error”, with a red/white failure icon.
- - Used to display reasons for failed decryption attempts.
+6. **[DecryptionReturnObject](https://github.com/tmfontan/DESDecryptionTool/blob/main/src/DecryptionReturnObject.java)**  
+   - Creates object instances to return results from a decryption attempt.  
+   - Returns:  
+     - A **Boolean flag** indicating success or failure.  
+     - An **error code** and details if an exception occurs.  
+     - The **decrypted plaintext** if successful.  
+   - Allows the GUI to display clear results or errors to the user.  
 
-Note: These GUI classes (and others) also contain TaskHandler inner classes that spawn and execute separate event queue threads for heavy data manipulation. This is explained further in the source code via comments.
+7. **[StringToByteArrayConversionResult](https://github.com/tmfontan/DESDecryptionTool/blob/main/src/StringToByteArrayConversionResult.java)**  
+   - Responsible for converting strings to byte arrays for decryption.  
+   - Handles hex string parsing, including tricky cases like extra whitespace.  
+   - Ensures formatting is correct before passing values into decryption.  
+   - Returns conversion results as objects, including failure information if input was poorly formatted.  
 
-### 5. BlockCipherDecrypt
-
- - Contains decryption methods for different DES cipher modes.
- - Formats input strings and converts them into their hexadecimal byte-equivalent forms.
- - Uses the external Bouncy Castle Security JAR (bcprov-jdk15on-1.66.jar) for cryptographic operations.
- - Provides the encryption and decryption logic for processing encrypted messages.
-
-Note: The JAR file comes from Maven but is not included by default in NetBeans. It must be added manually under the project’s External Jars directory.
-
-### 6. DecryptionReturnObject
-
- - Creates object instances to return results from a decryption attempt.
- - Returns:
-     - A Boolean flag indicating success or failure.
-     - An error code and details if an exception occurs.
-     - The decrypted plaintext if successful.
- - Allows the GUI to display clear results or errors to the user.
-
-### 7. StringToByteArrayConversionResult
-
- - Responsible for converting strings to byte arrays for decryption.
- - Handles hex string parsing, including tricky cases like extra whitespace.
- - Ensures formatting is correct before passing values into decryption.
- - Returns conversion results as objects, including failure information if input was poorly formatted.
+---
 
 ## 🗺️ Roadmap
 
